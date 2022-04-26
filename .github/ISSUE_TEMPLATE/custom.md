@@ -7,6 +7,14 @@ assignees: ''
 
 ---
 
+# paper name
+
+- author
+
+- link
+
+[]()
+
 ## 背景：なぜその問題を解決したいのか
 
 
