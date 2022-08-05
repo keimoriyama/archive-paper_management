@@ -68,7 +68,7 @@ $\alpha, \beta, \gamma$がそれぞれの確率モデルのパラメータに対
 $$u_{nq}=max_{\hat{y}\in \mathcal{Y}}\left(\sum_{y\in\mathcal{Y}}p_{\alpha}(y|x)u(\hat{y}, y)\right)\tag{5}$$
 
 ここで、人に問い合わせる前に$h$を入手することはできないため、$p_{\beta}(h|x)$からサンプルを取得して値を推定する。
-計算しきは式6の通り。
+計算式は式6の通り。
 $$u_q=\mathbb{E}_{h\sim p_{\beta}(h|x)}\left[max_{\hat{y}\in \mathcal{Y}}\left(\sum_{y\in \mathcal{Y}}p_{\gamma}(y|x,h)u(\hat{y}, y)\right)\right]\tag{6}$$
 
 ここで、$u_q > u_{nq}$の時、人に問い合わせを行う。
@@ -81,3 +81,14 @@ $p_{\alpha},p_{\beta},p_{\gamma}$を同時に学習させるために、NNで実
 これで学習させ、$u_q > u_{nq}$の時、人に問い合わせを行う。
 
 ## 結果：結局問題は解決されたのか．新しくわかったことは？
+
+### 実験
+
+使用するデータセットはGalaxy Zoo ProjectとCAMELYON16の２種類を用いて実験を行う。
+
+図２には、全体の損失の推移（分類誤差＋コストの量）が示されている。
+jointモデルの方が、fixedモデルよりも良い結果を出している（グラフのプロットが下の方になっているから）。
+また、VOIを考慮した手法の方がよい結果になっていることがわかる。
+全て人に依頼する時よりも、モデルを使った方がコストパフォーマンスのバランスが良くなっている。
+
+<img src="img/Screen%20Shot%202022-08-05%20at%2011.38.08.png" width="90%">
